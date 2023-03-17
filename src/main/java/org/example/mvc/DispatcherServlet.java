@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.example.mvc.controller.Controller;
+import org.example.mvc.controller.RequestMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +36,8 @@ public class DispatcherServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		log.info("[DispatcherServlet] service started.");
 		try {
-			Controller handler = rmhm.findHandler(request.getRequestURI());
+			Controller handler = rmhm.findHandler(new HandlerKey(RequestMethod.valueOf(request.getMethod()), request.getRequestURI()));
+			// redirect vs forward
 			String viewName = handler.handleRequest(request, response);
 
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(viewName);
