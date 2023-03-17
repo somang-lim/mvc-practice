@@ -8,6 +8,7 @@
     <title>list</title>
 </head>
 <body>
+<table>
     <thead>
     <tr>
         <th>#</th>
@@ -25,5 +26,6 @@
         </tr>
     </c:forEach>
     </tbody>
+</table>
 </body>
 </html>
