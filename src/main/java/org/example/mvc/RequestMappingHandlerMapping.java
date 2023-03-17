@@ -10,7 +10,7 @@ import org.example.mvc.controller.RequestMethod;
 import org.example.mvc.controller.UserCreateController;
 import org.example.mvc.controller.UserListController;
 
-public class RequestMappingHandlerMapping {
+public class RequestMappingHandlerMapping implements HandlerMapping {
 	// [key] /users [value] UserController
 	private Map<HandlerKey, Controller> mappings = new HashMap<>();
 
